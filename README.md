@@ -1,5 +1,14 @@
 # SMTPCracking & BruteForce Email 
 
+# Windows & Termux Working
+
+# Tampilan Windows
+![be](https://raw.githubusercontent.com/boychongzen18/SMTPCracking/master/win.png)
+# Tampilan Windows Scanning & Cracking
+![be](https://raw.githubusercontent.com/boychongzen18/SMTPCracking/master/scanning%26cracking.png)
+
+===============================================================================
+
 # Tampilan Termux
 ![be](https://raw.githubusercontent.com/boychongzen18/SMTPCracking/master/Tampilan-Termux.jpg)
 # Tampilan Termux Cracked
