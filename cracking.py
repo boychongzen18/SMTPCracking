@@ -373,7 +373,7 @@ tlds=cache={}
 bads=[]
 cracked=[]
 rbads=0
-email=azby
+email=YOUR EMAIL
 
  
 try:
